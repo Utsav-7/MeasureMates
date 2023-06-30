@@ -1,0 +1,107 @@
+body{
+    background-image:url('image.jpg');
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    background-color: var(--background-color4);
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+header {
+    /* background-color: #333; */
+    color:  #fff;
+    padding: 5px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.main-container {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-nav {
+    display: flex;
+    /* justify-content: space-around; */
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background-color: #ddd;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 40px;
+
+}
+
+.tab:hover,
+.active-tab {
+    background-color: #333;
+    color: #fff;
+}
+
+.tab-content {
+    padding: 10px;
+    border-radius: 0 5px 5px 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tab-pane {
+    display: none;
+    background-color: white;
+}
+
+.active-tab {
+    display: block;
+}
+
+#result, #mileage-ans, #equation-ans{
+    font-size: x-large;
+    color: black;
+    font-weight: bold;
+}
+
+label{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.converter input:disabled {
+    color: #c71717;
+    cursor: not-allowed;
+    font-weight: 900;
+  }
+
+footer {
+    margin-top: 165px;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+} 

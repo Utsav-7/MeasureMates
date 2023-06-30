@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="converter.css">
+    <link rel="stylesheet" href="HomePage.css">	
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Poppins:700" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="convert.js"></script>
+</head>
+
+<body>
+  <div id="video-background">
+    <video autoplay muted loop>
+      <source src="animation-1.mp4" type="video/mp4">
+    </video>
+  </div>
+  <header>
+      <h1 style="font-size: 50px;color: white;">MeasureMates</h1>
+	    <p style="text-align: center;color: whitesmoke;font-weight:900;">"Unlock the Power of Conversion: Your One-Stop Unit Conversion Solution!"</p>
+  </header>
+	<div class="main-container"style="margin-top: 75px;">
+		<div class="tab-container">
+      <div class="tab-nav" >
+        <div class="tab" onclick="openTab(event, 'converter')">Converter</div>
+        <div class="tab" onclick="openTab(event, 'custom')">Custom Calculator</div>
+        <div class="tab" onclick="openTab(event, 'mileageCal')">Mileage</div>
+        <!-- <div class="tab" onclick="openTab(event, 'equations')">Equation</div> -->
+        <a class="tab" href="index.html">Logout</a>
+      </div>
+			<div class="tab-content" >
+        <div id="converter" class="tab-pane active-tab" style="text-align: center;">
+          <div class="report-container">
+            <h1><center>UNIT CONVERTER</center></h1><hr>
+            <div class="converter-wrapper">				  
+              <form name="property_form">
+                <span>
+                <select class="select-property" name="the_menu" size=1 onChange="UpdateUnitMenu(this, document.form_A.unit_menu); UpdateUnitMenu(this, document.form_B.unit_menu)">
+                </select>
+                </span>
+              </form>
+              
+              <div class="converter-side-a">
+                <form name="form_A" onSubmit="return false">
+                <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0" onKeyUp="CalculateUnit(document.form_A, document.form_B)">
+                <span>
+                  <select name="unit_menu" onChange="CalculateUnit(document.form_B, document.form_A)">
+                  </select>
+                </span>
+                </form>
+              </div> <!-- /converter-side-a -->
+              
+              <div class="converter-equals"  style="color: black;">
+              <p>=</p>
+              </div> <!-- /converter-side-a -->
+              
+              <div class="converter-side-b">
+                <form name="form_B" onSubmit="return false">
+                <input type="text" class="numbersonly" name="unit_input" maxlength="20" value="0" onkeyup="CalculateUnit(document.form_B, document.form_A)">
+                <span>
+                  <select name="unit_menu" onChange="CalculateUnit(document.form_A, document.form_B)">
+                  </select>
+                </span><br><br>
+                </form>
+              </div> <!-- /converter-side-b -->
+            </div>	
+          </div>
+        </div>  
+
+
+        <div id="custom" class="tab-pane" style="text-align: center;">
+          <div class="report-container">
+            <h1><center>CUSTOM CALCULATOR</center></h1><hr>
+            <div class="converter-wrapper">				  
+              <div class="converter">
+                <!-- <label for="x">Value of x:</label> -->
+                <input type="number" onchange="calculate()"id="x" placeholder="Enter a value of x">
+            
+                <!-- <label for="y">Value of y:</label> -->
+                <input type="number" onchange="calculate()" id="y" placeholder="Enter a value of Y">
+            
+                <!-- <label for="equation" >Equation:</label> -->
+                <input type="text" onchange="calculate()"id="equation" placeholder="Enter an equation">
+            
+                <!-- <button onclick="calculate()">Calculate</button> -->
+				        <br><br>
+                <div id="result"></div>
+              </div>
+            </div>	
+          </div>
+        </div>      
+
+        <div id="mileageCal" class="tab-pane" style="text-align: center;">
+          <div class="report-container">
+            <h1>MILEAGE CALCULATOR</h1><hr>
+            <div class="converter-wrapper">
+              <div class="converter" style="text-align: left;">
+                <label for="Distance" >Distance:&nbsp;&nbsp;</label>
+                <input type="number" onchange="calculateValue()" id="distance" placeholder="Enter Distance in km" style="width:50%;"><br>
+                <label for="fual" >Fual used: </label>
+                <input type="number" onchange="calculateValue()" id="fual" placeholder="Enter fual in litres" style="width:50%;"><br>
+                <label for="Mileage" >Mileage:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="number" onchange="calculateValue()" id="mileage" placeholder="Enter mileage in km/l" style="width:50%;">
+                <br><br>
+                  <div id="mileage-ans" style="color:rgb(0, 0, 0); text-align: center;"></div> 
+              </div>  
+            </div>
+          </div>
+        </div> 
+
+        <!-- <div id="equations" class="tab-pane" style="text-align: center;">
+          <div class="report-container">
+            <h1>EQUATION CALCULATOR</h1><hr>
+            <div class="converter-wrapper">
+              <div class="converter" style="text-align: left;">
+                <label for="X" >&emsp;&emsp;&emsp;&ensp; X:</label>
+                <input type="number" id="x" placeholder="Enter value of x" style="width:50%;"><br>
+                <label for="Y" >&emsp;&emsp;&emsp;&ensp; Y: </label>
+                <input type="number" id="y" placeholder="Enter value of y" style="width:50%;"><br>
+                <label for="Equation">Equation:&nbsp;</label>
+                <input type="text" onchange="calculateEqu()" id="equa" placeholder="Enter an equation" style="width:50%;" required>
+                <br><br>
+                <div id="equation-ans" style="color:rgb(0, 0, 0); text-align: center;"></div> 
+              </div>  
+            </div>
+          </div>
+        </div> -->
+        
+			</div>
+		</div>
+	</div>
+
+  <footer>
+    <p style="color:white; text-align: center;">&copy; 2023 MeasureMates. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
