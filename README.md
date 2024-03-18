@@ -11,7 +11,7 @@
 - Measure Mates, a dynamic platform for connecting fitness enthusiasts, plans to host its static website using Amazon S3 and CloudFront. Leveraging Amazon S3 for reliable storage and distribution of static assets like HTML, CSS, and JavaScript files, along with CloudFront's content delivery network (CDN) for efficient caching and accelerated content delivery to users worldwide, Measure Mates ensures fast and scalable access to its web content, enhancing user experience and maximizing performance for its global audience.
   
 - ### Diagram: 
-&emsp; ![aws_static_web_hosting](https://github.com/Utsav-7/Unit-Converter/assets/98468952/ad782d06-d5a9-4f9a-af0b-48731f7fab8b)
+&emsp; ![aws_static_web_hosting (1)](https://github.com/Utsav-7/MeasureMates/assets/98468952/17ddf908-6709-40c1-b94f-9a3acd91e01f)
 
 - ### Snapshots:
 &emsp; ![Screenshot from 2024-03-17 22-56-31](https://github.com/Utsav-7/Unit-Converter/assets/98468952/d01ec06a-2ee0-4470-918c-279493e679aa)
